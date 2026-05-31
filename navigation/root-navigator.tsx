@@ -3,34 +3,46 @@ import {
   DefaultTheme,
   NavigationContainer,
 } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusBar } from 'expo-status-bar';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import BottomTabs from '@/navigation/bottom-tabs';
-import ModalScreen from '@/screens/modal-screen';
+import AuthStack from './AuthStack';
+import AppStack from './AppStack';
+import { useCallback, useEffect, useState } from 'react';
+import SplashScreen from '@/screens/splash-screen/SplashScreen';
 
 export type RootStackParamList = {
   Tabs: undefined;
   Modal: undefined;
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function RootNavigator() {
   const colorScheme = useColorScheme();
+  const [isLoading,setIsLoading]=useState(true)
 
+
+useEffect(()=>{
+  setTimeout(() => {
+    setIsLoading(false)
+    console.log("Changes ");
+    
+  }, 3000);
+
+},[isLoading])
+
+ const getRoute= useCallback(()=>{
+
+  if(true){ 
+    return  AuthStack()
+  }
+  else{
+    return AppStack()} 
+ 
+  },[])
+  if (isLoading) return <SplashScreen/>
   return (
     <NavigationContainer theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack.Navigator>
-        <Stack.Screen name="Tabs" component={BottomTabs} options={{ headerShown: false }} />
-        <Stack.Screen
-          name="Modal"
-          component={ModalScreen}
-          options={{ presentation: 'modal', title: 'Modal' }}
-        />
-      </Stack.Navigator>
-      <StatusBar style="auto" />
+      {getRoute()}
     </NavigationContainer>
   );
 }

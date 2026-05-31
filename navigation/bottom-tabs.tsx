@@ -2,9 +2,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { HapticTab } from '@/components/haptic-tab';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import BookingsScreen from '@/screens/bookings-screen';
-import HomeScreen from '@/screens/home-screen';
-import MapScreen from '@/screens/map-screen';
+import BookingsScreen from '@/screens/booking-screen/bookings-screen';
+import HomeScreen from '@/screens/home-screen/home-screen';
+import MapScreen from '@/screens/map-screen/map-screen';
 
 export type RootTabParamList = {
   Home: undefined;
