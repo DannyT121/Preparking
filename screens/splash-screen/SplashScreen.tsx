@@ -1,11 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { APP_LOGO_PNG } from '@/assets/images'
+import { ThemedView } from '@/components/themed-view'
 import React from 'react'
+import { Image, StatusBar, StyleSheet } from 'react-native'
 
 const SplashScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text>SplashScreen</Text>
-    </View>
+    <ThemedView style={styles.container}>
+      <StatusBar barStyle='dark-content' backgroundColor={'transparent'} />
+      <Image source={APP_LOGO_PNG} />
+    </ThemedView>
   )
 }
 

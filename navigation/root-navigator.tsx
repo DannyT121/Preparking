@@ -5,10 +5,9 @@ import {
 } from '@react-navigation/native';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import AuthStack from './AuthStack';
-import AppStack from './AppStack';
-import { useCallback, useEffect, useState } from 'react';
 import SplashScreen from '@/screens/splash-screen/SplashScreen';
+import { useEffect, useState } from 'react';
+import AuthStack from './AuthStack';
 
 export type RootStackParamList = {
   Tabs: undefined;
@@ -22,27 +21,16 @@ export default function RootNavigator() {
 
 
 useEffect(()=>{
-  setTimeout(() => {
+  const timer = setTimeout(() => {
     setIsLoading(false)
-    console.log("Changes ");
-    
   }, 3000);
+  return () => clearTimeout(timer)
+},[])
 
-},[isLoading])
-
- const getRoute= useCallback(()=>{
-
-  if(true){ 
-    return  AuthStack()
-  }
-  else{
-    return AppStack()} 
- 
-  },[])
   if (isLoading) return <SplashScreen/>
   return (
     <NavigationContainer theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      {getRoute()}
+      <AuthStack />
     </NavigationContainer>
   );
 }

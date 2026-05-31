@@ -1,0 +1,40 @@
+{
+  "common": {
+    "or": "or"
+  },
+  "welcome": {
+    "title": "Find Your Spot Instantly",
+    "subtitle": "See available parking near you on a live map. No more guessing. No more circling.",
+    "getStarted": "Get Started"
+  },
+  "login": {
+    "title": "Let’s get you in",
+    "subtitle": "Sign up to continue to Arrio",
+    "continueWithGoogle": "Continue with Google",
+    "phonePlaceholder": "Enter Phone Number",
+    "smsDisclaimer": "You will receive an SMS verification that may apply message and data rates.",
+    "sendOtp": "Send OTP",
+    "terms": {
+      "prefix": "By continuing, you agree to our ",
+      "termsOfService": "Terms of Service",
+      "conjunction": " and ",
+      "privacyPolicy": "Privacy Policy."
+    }
+  },
+  "otp": {
+    "title": "Otp",
+    "changeNumber": "Change number",
+    "heading": "Enter authentication code",
+    "subtitle": "Enter the 4-digit that we have sent via the phone number",
+    "continue": "Continue",
+    "resend": "Resend Code"
+  },
+  "countryPicker": {
+    "title": "Select country",
+    "searchPlaceholder": "Search country or code",
+    "empty": "No countries found"
+  },
+  "phoneInput": {
+    "placeholder": "Input text"
+  }
+}
